@@ -9,7 +9,8 @@ $softwareRepo = 'xanderfrangos/twinkle-tray'
 function global:au_GetLatest {
     return @{
         Url64 = Get-SoftwareUri
-        Version = Get-LatestStableVersion
+        SoftwareVersion = Get-LatestStableVersion
+        Version = $SoftwareVersion #This may change if building a package fix version
     }
 }
 
@@ -32,15 +33,15 @@ function global:au_SearchReplace {
     @{
         "$($Latest.PackageName).nuspec" = @{
             "<packageSourceUrl>[^<]*</packageSourceUrl>" = "<packageSourceUrl>https://github.com/brogers5/chocolatey-package-$($Latest.PackageName)/tree/v$($Latest.Version)</packageSourceUrl>"
-            "<licenseUrl>[^<]*</licenseUrl>" = "<licenseUrl>https://github.com/$($softwareRepo)/blob/v$($Latest.Version)/LICENSE</licenseUrl>"
-            "<projectSourceUrl>[^<]*</projectSourceUrl>" = "<projectSourceUrl>https://github.com/$($softwareRepo)/tree/v$($Latest.Version)</projectSourceUrl>"
-            "<releaseNotes>[^<]*</releaseNotes>" = "<releaseNotes>https://github.com/$($softwareRepo)/releases/tag/v$($Latest.Version)</releaseNotes>"
+            "<licenseUrl>[^<]*</licenseUrl>" = "<licenseUrl>https://github.com/$($softwareRepo)/blob/v$($Latest.SoftwareVersion)/LICENSE</licenseUrl>"
+            "<projectSourceUrl>[^<]*</projectSourceUrl>" = "<projectSourceUrl>https://github.com/$($softwareRepo)/tree/v$($Latest.SoftwareVersion)</projectSourceUrl>"
+            "<releaseNotes>[^<]*</releaseNotes>" = "<releaseNotes>https://github.com/$($softwareRepo)/releases/tag/v$($Latest.SoftwareVersion)</releaseNotes>"
             "<copyright>[^<]*</copyright>" = "<copyright>$((Get-Item "$toolsPath\$($Latest.FileName64)").VersionInfo.LegalCopyright)</copyright>"
         }
         'tools\VERIFICATION.txt' = @{
             '%checksumValue%' = "$($Latest.Checksum64)"
             '%checksumType%' = "$($Latest.ChecksumType64.ToUpper())"
-            '%tagReleaseUrl%' = "https://github.com/$($softwareRepo)/releases/tag/v$($Latest.Version)"
+            '%tagReleaseUrl%' = "https://github.com/$($softwareRepo)/releases/tag/v$($Latest.SoftwareVersion)"
             '%binaryUrl%' = "$($Latest.Url64)"
             '%binaryFileName%' = "$($Latest.FileName64)"
         }	
