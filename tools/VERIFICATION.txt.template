@@ -1,23 +1,23 @@
-VERIFICATION
+﻿VERIFICATION
 Verification is intended to assist the Chocolatey moderators and community
 in verifying that this package's contents are trustworthy.
 
 The packaged Windows installer binary is available for independent download via the
 Releases page on Twinkle Tray's GitHub repository. A download link for the packaged version
 is included at the following URL:
-https://github.com/xanderfrangos/twinkle-tray/releases/tag/v1.13.11
+%tagReleaseUrl%
 
 For convenience, this is a direct URL to the relevant asset:
-https://github.com/xanderfrangos/twinkle-tray/releases/download/v1.13.11/Twinkle.Tray.v1.13.11.exe
+%binaryUrl%
 
-The following PowerShell command will print a calculated SHA256 hash:
+The following PowerShell command will print a calculated %checksumType% hash:
 
-    (Get-FileHash Twinkle.Tray.v1.13.11.exe -Algorithm SHA256).Hash
+    (Get-FileHash %binaryFileName% -Algorithm %checksumType%).Hash
 
 This command should be executed against an independently downloaded binary, as well
 as the copy distributed with the package. Both hash values should be identical. A
 matching hash value should confirm that no corruption or tampering has occurred
 during this package's generation process.
 
-For reference, the following SHA256 hash was calculated during the package's automated creation:
-666194A2BA70997194F73342FA30C4688814226C760577F40839B5C9A874F367
+For reference, the following %checksumType% hash was calculated during the package's automated creation:
+%checksumValue%
