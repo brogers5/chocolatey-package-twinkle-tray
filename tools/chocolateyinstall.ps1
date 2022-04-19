@@ -16,4 +16,4 @@ $packageArgs = @{
 Install-ChocolateyPackage @packageArgs
 
 #Remove installer binary post-install to prevent disk bloat
-Remove-Item $filePath -Force
+Remove-Item $filePath -Force -ErrorAction SilentlyContinue
