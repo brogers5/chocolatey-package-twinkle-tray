@@ -7,10 +7,12 @@ $toolsPath = Join-Path -Path $currentPath -ChildPath "tools"
 $softwareRepo = 'xanderfrangos/twinkle-tray'
 
 function global:au_GetLatest {
+    $version = Get-LatestStableVersion
+
     return @{
         Url64 = Get-SoftwareUri
-        SoftwareVersion = Get-LatestStableVersion
-        Version = $SoftwareVersion #This may change if building a package fix version
+        Version = $version #This may change if building a package fix version
+        SoftwareVersion = $version
     }
 }
 
