@@ -8,8 +8,7 @@ $nuspecFileRelativePath = Join-Path -Path $currentPath -ChildPath "twinkle-tray.
 [xml] $nuspec = Get-Content "$nuspecFileRelativePath"
 $version = [Version] $nuspec.package.metadata.version
 
-[System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("UseDeclaredVarsMoreThanAssignments", "", Scope="Module", Justification="Used in Get-RemoteFiles")]
-$Latest = @{
+$global:Latest = @{
     Url64 = Get-SoftwareUri -Version $version
     Version = $version
 }
