@@ -14,7 +14,7 @@ $global:Latest = @{
 }
 
 Write-Host "Downloading..."
-Get-RemoteFiles -Purge -NoSuffix -Algorithm sha256
+Get-RemoteFiles -Purge -NoSuffix
 
 Write-Host "Creating package..."
 choco pack $nuspecFileRelativePath
