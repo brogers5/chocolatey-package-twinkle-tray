@@ -17,3 +17,9 @@ Install-ChocolateyPackage @packageArgs
 
 #Remove installer binary post-install to prevent disk bloat
 Remove-Item $filePath -Force -ErrorAction SilentlyContinue
+
+#If installer binary removal fails for some reason, prevent a shim from being generated
+if (Test-Path -Path $filePath)
+{
+  Set-Content -Path "$filePath.ignore" -Value $null -ErrorAction SilentlyContinue
+}
