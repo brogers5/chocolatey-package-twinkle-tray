@@ -39,3 +39,10 @@ if (Test-Path -Path $filePath)
 {
   Set-Content -Path "$filePath.ignore" -Value $null -ErrorAction SilentlyContinue
 }
+
+if ($pp.Start)
+{
+  #Spawn a separate temporary PowerShell instance to prevent display of debug output
+  $statement = "Start-Process -FilePath ""$installedApplicationPath"""
+  Start-ChocolateyProcessAsAdmin -Statements $statement -NoSleep -ErrorAction SilentlyContinue
+}
