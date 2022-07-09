@@ -12,7 +12,7 @@ For convenience, this is a direct URL to the relevant asset:
 
 The following PowerShell command will print a calculated %checksumType% hash:
 
-    (Get-FileHash %binaryFileName% -Algorithm %checksumType%).Hash
+    (Get-FileHash -Path %binaryFileName% -Algorithm %checksumType%).Hash
 
 This command should be executed against an independently downloaded binary, as well
 as the copy distributed with the package. Both hash values should be identical. A
