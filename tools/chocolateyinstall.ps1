@@ -2,7 +2,7 @@
 
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $installerFileName = 'Twinkle.Tray.v1.13.11.exe'
-$filePath = Join-Path -Path "$toolsDir" -ChildPath "$installerFileName"
+$filePath = Join-Path -Path $toolsDir -ChildPath $installerFileName
 
 $pp = Get-PackageParameters
 
