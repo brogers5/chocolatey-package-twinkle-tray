@@ -13,7 +13,7 @@ Twinkle Tray lets you easily manage the brightness levels of multiple monitors. 
   * Adds brightness sliders to the system tray, similar to the built-in Windows volume flyout.
   * Seamlessly blends in with Windows 10 and Windows 11. Uses your Personalization settings to match your taskbar.
   * Can automatically change monitor brightness depending on the time of day or when idle.
-  * Bind hotkeys to adjust the brightness of specifical or all displays.
+  * Bind hotkeys to adjust the brightness of specific or all displays.
   * Normalize backlight across different monitors.
   * Control DDC/CI features such as contrast.
   * Starts up with Windows.
@@ -21,7 +21,7 @@ Twinkle Tray lets you easily manage the brightness levels of multiple monitors. 
 ### Design & Personalization
 Twinkle Tray will automatically adjust the look and feel to match your Windows version and preferences. Additional options are available to select the Windows version and theme of your choice.
 
-![Comparsion Screenshot](https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-twinkle-tray@ad59227d2bac35585d8e4831082727cc4e4d321b/tt-comparison.jpg)
+![Comparison Screenshot](https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-twinkle-tray@ad59227d2bac35585d8e4831082727cc4e4d321b/tt-comparison.jpg)
 
 ## Package Parameters
 
@@ -30,7 +30,7 @@ Twinkle Tray will automatically adjust the look and feel to match your Windows v
 
 ## Package Notes
 
-This package may create a [shim](https://docs.chocolatey.org/en-us/features/shim) named `twinkletray` to faciliate easier access to the command-line interface. However, `shimgen` will create a GUI shim, which will not wait for the underlying process to exit by default. This may cause issues with displaying console output when using the command-line interface or viewing debug messages. Users requiring this functionality should pass the `--shimgen-waitforexit` switch to ensure the shim behaves correctly.
+This package may create a [shim](https://docs.chocolatey.org/en-us/features/shim) named `twinkletray` to facilitate easier access to the command-line interface. However, `shimgen` will create a GUI shim, which will not wait for the underlying process to exit by default. This may cause issues with displaying console output when using the command-line interface or viewing debug messages. Users requiring this functionality should pass the `--shimgen-waitforexit` switch to ensure the shim behaves correctly.
 
 ---
 
