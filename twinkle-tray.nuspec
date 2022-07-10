@@ -17,7 +17,7 @@
     <docsUrl>https://github.com/xanderfrangos/twinkle-tray/wiki</docsUrl>
     <mailingListUrl>https://github.com/xanderfrangos/twinkle-tray/discussions</mailingListUrl>
     <bugTrackerUrl>https://github.com/xanderfrangos/twinkle-tray/issues</bugTrackerUrl>
-    <tags>twinkle tray brightness monitor display 64-bit foss</tags>
+    <tags>twinkle-tray twinkle tray brightness contrast power monitor display ddc ci 64-bit foss</tags>
     <summary>Easily manage the brightness of your monitors in Windows from the system tray</summary>
     <description><![CDATA[
 ---
