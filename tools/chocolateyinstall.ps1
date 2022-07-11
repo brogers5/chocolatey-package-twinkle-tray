@@ -15,7 +15,7 @@ $packageArgs = @{
   validExitCodes = @(0)
 }
 
-Install-ChocolateyPackage @packageArgs
+Install-ChocolateyInstallPackage @packageArgs
 
 $installedApplicationPath = Join-Path -Path $env:LOCALAPPDATA -ChildPath 'Programs' |
                             Join-Path -ChildPath 'twinkle-tray' |
