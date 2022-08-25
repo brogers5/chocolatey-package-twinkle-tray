@@ -46,7 +46,7 @@ function global:au_SearchReplace {
             '%tagReleaseUrl%' = "https://github.com/$($softwareRepo)/releases/tag/v$($Latest.SoftwareVersion)"
             '%binaryUrl%' = "$($Latest.Url64)"
             '%binaryFileName%' = "$($Latest.FileName64)"
-        }	
+        }
         'tools\chocolateyinstall.ps1' = @{
             "(^[$]installerFileName\s*=\s*)('.*')" = "`$1'$($Latest.FileName64)'"
         }
