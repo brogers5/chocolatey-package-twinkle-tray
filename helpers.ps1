@@ -1,13 +1,13 @@
-﻿$installerFileNameRegex = 'Twinkle\.Tray\.v([\d\.]+)\.exe$'
-$repo = 'xanderfrangos/twinkle-tray'
+﻿Import-Module PowerShellForGitHub
 
-$gitHubApiReleases = "https://api.github.com/repos/$repo/releases"
-$latestReleaseUri = "$gitHubApiReleases/latest"
+$installerFileNameRegex = 'Twinkle\.Tray\.v([\d\.]+)\.exe$'
+$owner = 'xanderfrangos'
+$repository = 'twinkle-tray'
 
 function Get-LatestStableVersion {
-    $releaseDetails = Invoke-RestMethod -Uri $latestReleaseUri -Method Get -UseBasicParsing
+    $latestRelease = (Get-GitHubRelease -OwnerName $owner -RepositoryName $repository -Latest)[0]
 
-    return [Version] $releaseDetails.tag_name.Substring(1)
+    return [Version] $latestRelease.tag_name.Substring(1)
 }
 
 function Get-SoftwareUri {
@@ -16,18 +16,16 @@ function Get-SoftwareUri {
         [Version] $Version
     )
 
-    $uri = $null
     if ($null -eq $Version)
     {
         # Default to latest stable version
-        $uri = $latestReleaseUri
+        $release = (Get-GitHubRelease -OwnerName $owner -RepositoryName $repository -Latest)[0]
     }
     else 
     {
-        $uri = "$gitHubApiReleases/tags/v$($Version)"
+        $release = Get-GitHubRelease -OwnerName $owner -RepositoryName $repository -Tag "v$($Version.ToString())"
     }
-    $releaseDetails = Invoke-RestMethod -Uri $uri -Method Get -UseBasicParsing
-    $releaseAssets = Invoke-RestMethod -Uri $releaseDetails.assets_url -Method Get -UseBasicParsing
+    $releaseAssets = Get-GitHubReleaseAsset -OwnerName $owner -RepositoryName $repository -Release $release.ID
 
     $windowsInstallerAsset = $null
     foreach ($asset in $releaseAssets)
