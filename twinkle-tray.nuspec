@@ -3,17 +3,17 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>twinkle-tray</id>
-    <version>1.14.7</version>
-    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-twinkle-tray/tree/v1.14.7</packageSourceUrl>
+    <version>1.14.8</version>
+    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-twinkle-tray/tree/v1.14.8</packageSourceUrl>
     <owners>sublym0nal</owners>
     <title>Twinkle Tray</title>
     <authors>Xander Frangos</authors>
     <projectUrl>https://twinkletray.com/</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-twinkle-tray@800782d6afb5b6ab2e4dcefdb879bea194f0fef8/twinkle-tray.png</iconUrl>
     <copyright>Copyright © 2022 Xander Frangos</copyright>
-    <licenseUrl>https://github.com/xanderfrangos/twinkle-tray/blob/v1.14.7/LICENSE</licenseUrl>
+    <licenseUrl>https://github.com/xanderfrangos/twinkle-tray/blob/v1.14.8/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <projectSourceUrl>https://github.com/xanderfrangos/twinkle-tray/tree/v1.14.7</projectSourceUrl>
+    <projectSourceUrl>https://github.com/xanderfrangos/twinkle-tray/tree/v1.14.8</projectSourceUrl>
     <docsUrl>https://github.com/xanderfrangos/twinkle-tray/wiki</docsUrl>
     <mailingListUrl>https://github.com/xanderfrangos/twinkle-tray/discussions</mailingListUrl>
     <bugTrackerUrl>https://github.com/xanderfrangos/twinkle-tray/issues</bugTrackerUrl>
@@ -21,6 +21,7 @@
     <summary>Easily manage the brightness of your monitors in Windows from the system tray</summary>
     <description><![CDATA[
 ---
+
 ### [choco://twinkle-tray](choco://twinkle-tray)
 To use choco:// protocol URLs, install [(unofficial) choco:// Protocol support ](https://community.chocolatey.org/packages/choco-protocol-support)
 
@@ -31,15 +32,17 @@ Twinkle Tray lets you easily manage the brightness levels of multiple monitors. 
 ![Screenshot](https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-twinkle-tray@ad59227d2bac35585d8e4831082727cc4e4d321b/tt-screenshot-w11.jpg)
 
 ## Features
-  * Adds brightness sliders to the system tray, similar to the built-in Windows volume flyout.
-  * Seamlessly blends in with Windows 10 and Windows 11. Uses your Personalization settings to match your taskbar.
-  * Can automatically change monitor brightness depending on the time of day or when idle.
-  * Bind hotkeys to adjust the brightness of specific or all displays.
-  * Normalize backlight across different monitors.
-  * Control DDC/CI features such as contrast.
-  * Starts up with Windows.
+
+* Adds brightness sliders to the system tray, similar to the built-in Windows volume flyout.
+* Seamlessly blends in with Windows 10 and Windows 11. Uses your Personalization settings to match your taskbar.
+* Can automatically change monitor brightness depending on the time of day or when idle.
+* Bind hotkeys to adjust the brightness of specific or all displays.
+* Normalize backlight across different monitors.
+* Control DDC/CI features such as contrast.
+* Starts up with Windows.
 
 ### Design & Personalization
+
 Twinkle Tray will automatically adjust the look and feel to match your Windows version and preferences. Additional options are available to select the Windows version and theme of your choice.
 
 ![Comparison Screenshot](https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-twinkle-tray@ad59227d2bac35585d8e4831082727cc4e4d321b/tt-comparison.jpg)
@@ -56,7 +59,8 @@ This package may create a [shim](https://docs.chocolatey.org/en-us/features/shim
 ---
 
 For future upgrade operations, consider opting into Chocolatey's `useRememberedArgumentsForUpgrades` feature to avoid having to pass the same arguments with each upgrade:
-```
+
+```shell
 choco feature enable -n=useRememberedArgumentsForUpgrades
 ```
 
@@ -64,7 +68,7 @@ choco feature enable -n=useRememberedArgumentsForUpgrades
 
 When using the `/Start` package parameter, you may see a large `CLIXML` block logged to `stderr`. This is [a known issue](https://github.com/chocolatey/choco/issues/1016) with Chocolatey's `Start-ChocolateyProcessAsAdmin` cmdlet, and is not necessarily indicative of an error condition. Until this is addressed, you should ensure the `failOnStandardError` feature is disabled while installing/upgrading this package.
 ]]></description>
-    <releaseNotes>https://github.com/xanderfrangos/twinkle-tray/releases/tag/v1.14.7</releaseNotes>
+    <releaseNotes>https://github.com/xanderfrangos/twinkle-tray/releases/tag/v1.14.8</releaseNotes>
   </metadata>
   <files>
     <file src="tools\chocolateyinstall.ps1" target="tools" />
