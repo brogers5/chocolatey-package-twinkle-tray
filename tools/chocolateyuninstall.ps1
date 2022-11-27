@@ -29,8 +29,4 @@ elseif ($keys.Count -gt 1)
   $keys | ForEach-Object {Write-Warning "- $($_.DisplayName)"}
 }
 
-$installedApplicationPath = Join-Path -Path $env:LOCALAPPDATA -ChildPath 'Programs' |
-                            Join-Path -ChildPath 'twinkle-tray' |
-                            Join-Path -ChildPath 'Twinkle Tray.exe'
-
-Uninstall-BinFile -Name 'twinkletray' -Path $installedApplicationPath
+Uninstall-BinFile -Name 'twinkletray'

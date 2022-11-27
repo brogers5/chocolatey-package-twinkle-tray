@@ -31,7 +31,7 @@ $shimName = 'twinkletray'
 $pp = Get-PackageParameters
 if ($pp.NoShim)
 {
-  Uninstall-BinFile -Name $shimName -Path $installedApplicationPath
+  Uninstall-BinFile -Name $shimName
 }
 else
 {
