@@ -4,8 +4,6 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $installerFileName = 'Twinkle.Tray.v1.15.0-beta1.exe'
 $filePath = Join-Path -Path $toolsDir -ChildPath $installerFileName
 
-$pp = Get-PackageParameters
-
 $packageArgs = @{
   packageName = $env:ChocolateyPackageName
   fileType = 'EXE'
@@ -22,6 +20,7 @@ $installedApplicationPath = Join-Path -Path $env:LOCALAPPDATA -ChildPath 'Progra
                             Join-Path -ChildPath 'Twinkle Tray.exe'
 $shimName = 'twinkletray'
 
+$pp = Get-PackageParameters
 if ($pp.NoShim)
 {
   Uninstall-BinFile -Name $shimName -Path $installedApplicationPath
