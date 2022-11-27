@@ -34,6 +34,10 @@ Twinkle Tray will automatically adjust the look and feel to match your Windows v
 
 ## Package Notes
 
+The installer executed by this package was built using Nullsoft Scriptable Install System (NSIS). For advanced setup scenarios, refer to [NSIS's command-line interface documentation](https://nsis.sourceforge.io/Docs/Chapter3.html). Any desired arguments can be appended to (or optionally overriding with the `--override-arguments` switch) the package's default install arguments with the `--install-arguments` option.
+
+---
+
 This package may create a [shim](https://docs.chocolatey.org/en-us/features/shim) named `twinkletray` to facilitate easier access to the command-line interface. However, `shimgen` will create a GUI shim, which will not wait for the underlying process to exit by default. This may cause issues with displaying console output when using the command-line interface or viewing debug messages. Users requiring this functionality should pass the `--shimgen-waitforexit` switch to ensure the shim behaves correctly.
 
 ---
