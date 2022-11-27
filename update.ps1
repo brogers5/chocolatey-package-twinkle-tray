@@ -6,7 +6,19 @@ $currentPath = (Split-Path $MyInvocation.MyCommand.Definition)
 $toolsPath = Join-Path -Path $currentPath -ChildPath "tools"
 $softwareRepo = 'xanderfrangos/twinkle-tray'
 
-function global:au_GetLatest {
+function Get-LatestBetaVersionInfo
+{
+    $version = Get-LatestPreReleaseVersion
+
+    return @{
+        Url64 = Get-SoftwareUri -Version $version
+        Version = $version #This may change if building a package fix version
+        SoftwareVersion = $version
+    }
+}
+
+function Get-LatestStableVersionInfo
+{
     $version = Get-LatestStableVersion
 
     return @{
@@ -14,6 +26,15 @@ function global:au_GetLatest {
         Version = $version #This may change if building a package fix version
         SoftwareVersion = $version
     }
+}
+
+function global:au_GetLatest {
+    $streams = [Ordered] @{
+        Beta = Get-LatestBetaVersionInfo
+        Stable = Get-LatestStableVersionInfo
+    }
+
+    return @{ Streams = $streams}
 }
 
 function global:au_BeforeUpdate ($Package)  {

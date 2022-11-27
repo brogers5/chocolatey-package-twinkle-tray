@@ -1,10 +1,19 @@
 ﻿Import-Module PowerShellForGitHub
 
-$installerFileNameRegex = 'Twinkle\.Tray\.v([\d\.]+)\.exe$'
+$installerFileNameRegex = 'Twinkle\.Tray\.v([\d\.]+(-beta\d)?)\.exe'
 $owner = 'xanderfrangos'
 $repository = 'twinkle-tray'
 
-function Get-LatestStableVersion {
+function Get-LatestPreReleaseVersion
+{
+    $releases = Get-GitHubRelease -OwnerName $owner -RepositoryName $repository
+    $latestPreRelease = $releases | Where-Object { $_.PreRelease -eq $true } | Select-Object -First 1
+
+    return $latestPreRelease.tag_name.Substring(1)
+}
+
+function Get-LatestStableVersion
+{
     $latestRelease = (Get-GitHubRelease -OwnerName $owner -RepositoryName $repository -Latest)[0]
 
     return [Version] $latestRelease.tag_name.Substring(1)
