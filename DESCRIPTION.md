@@ -40,7 +40,7 @@ This package may create a [shim](https://docs.chocolatey.org/en-us/features/shim
 For future upgrade operations, consider opting into Chocolatey's `useRememberedArgumentsForUpgrades` feature to avoid having to pass the same arguments with each upgrade:
 
 ```shell
-choco feature enable -n=useRememberedArgumentsForUpgrades
+choco feature enable --name=useRememberedArgumentsForUpgrades
 ```
 
 ---
