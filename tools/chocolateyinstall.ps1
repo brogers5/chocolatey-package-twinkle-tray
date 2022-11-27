@@ -3,21 +3,29 @@
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $installerFileName = 'Twinkle.Tray.v1.15.0-beta1.exe'
 $filePath = Join-Path -Path $toolsDir -ChildPath $installerFileName
+$softwareNamePattern = 'Twinkle Tray*'
 
 $packageArgs = @{
   packageName = $env:ChocolateyPackageName
   fileType = 'EXE'
   file64 = $filePath
-  softwareName = 'Twinkle Tray*'
+  softwareName = $softwareNamePattern
   silentArgs = '/S'
   validExitCodes = @(0)
 }
 
 Install-ChocolateyInstallPackage @packageArgs
 
-$installedApplicationPath = Join-Path -Path $env:LOCALAPPDATA -ChildPath 'Programs' |
-                            Join-Path -ChildPath 'twinkle-tray' |
-                            Join-Path -ChildPath 'Twinkle Tray.exe'
+$appInstallLocation = Get-AppInstallLocation -AppNamePattern $softwareNamePattern
+if ($null -ne $appInstallLocation)
+{
+  $installedApplicationPath = Join-Path -Path $appInstallLocation -ChildPath 'Twinkle Tray.exe'
+}
+else
+{
+  Write-Warning 'Install location not detected'
+}
+
 $shimName = 'twinkletray'
 
 $pp = Get-PackageParameters
@@ -27,7 +35,14 @@ if ($pp.NoShim)
 }
 else
 {
-  Install-BinFile -Name $shimName -Path $installedApplicationPath
+  if ($null -ne $installedApplicationPath)
+  {
+      Install-BinFile -Name $shimName -Path $installedApplicationPath
+  }
+  else
+  {
+      Write-Warning 'Skipping shim creation - install location not detected'
+  }
 }
 
 #Remove installer binary post-install to prevent disk bloat
@@ -41,7 +56,14 @@ if (Test-Path -Path $filePath)
 
 if ($pp.Start)
 {
-  #Spawn a separate temporary PowerShell instance to prevent display of debug output
-  $statement = "Start-Process -FilePath ""$installedApplicationPath"""
-  Start-ChocolateyProcessAsAdmin -Statements $statement -NoSleep -ErrorAction SilentlyContinue
+  if ($null -ne $installedApplicationPath)
+  {
+    #Spawn a separate temporary PowerShell instance to prevent display of debug output
+    $statement = "Start-Process -FilePath ""$installedApplicationPath"""
+    Start-ChocolateyProcessAsAdmin -Statements $statement -NoSleep -ErrorAction SilentlyContinue
+  }
+  else
+  {
+    Write-Warning 'Skipping application start - install location not detected'
+  }
 }
