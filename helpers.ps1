@@ -10,12 +10,8 @@ function Get-LatestStableVersion {
     return [Version] $latestRelease.tag_name.Substring(1)
 }
 
-function Get-SoftwareUri {
-    [CmdletBinding()]
-    param(
-        [Version] $Version
-    )
-
+function Get-SoftwareUri($Version)
+{
     if ($null -eq $Version)
     {
         # Default to latest stable version
