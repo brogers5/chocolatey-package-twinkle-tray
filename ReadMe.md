@@ -5,7 +5,7 @@
 
 ## Install
 
-[Install Chocolatey](https://chocolatey.org/install), and run the following command to install the latest approved version from the Chocolatey Community Repository:
+[Install Chocolatey](https://chocolatey.org/install), and run the following command to install the latest approved stable version from the Chocolatey Community Repository:
 
 ```shell
 choco install twinkle-tray --source="'https://community.chocolatey.org/api/v2'"
@@ -16,6 +16,8 @@ Alternatively, the packages as published on the Chocolatey Community Repository 
 ```shell
 choco install twinkle-tray --source="'.'"
 ```
+
+This package also supports the project's pre-release builds. Opt into these with the `--prerelease` switch.
 
 ## Build
 
