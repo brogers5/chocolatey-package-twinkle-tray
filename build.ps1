@@ -6,11 +6,10 @@ $currentPath = (Split-Path $MyInvocation.MyCommand.Definition)
 $nuspecFileRelativePath = Join-Path -Path $currentPath -ChildPath "twinkle-tray.nuspec"
 
 [xml] $nuspec = Get-Content "$nuspecFileRelativePath"
-$version = [Version] $nuspec.package.metadata.version
+$version = $nuspec.package.metadata.version
 
 $global:Latest = @{
     Url64 = Get-SoftwareUri -Version $version
-    Version = $version
 }
 
 Write-Host "Downloading..."
