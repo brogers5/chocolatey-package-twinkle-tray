@@ -3,17 +3,17 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>twinkle-tray</id>
-    <version>1.15.0-beta1</version>
-    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-twinkle-tray/tree/v1.15.0-beta1</packageSourceUrl>
+    <version>1.15.0-beta2</version>
+    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-twinkle-tray/tree/v1.15.0-beta2</packageSourceUrl>
     <owners>sublym0nal</owners>
     <title>Twinkle Tray</title>
     <authors>Xander Frangos</authors>
     <projectUrl>https://twinkletray.com/</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-twinkle-tray@800782d6afb5b6ab2e4dcefdb879bea194f0fef8/twinkle-tray.png</iconUrl>
     <copyright>Copyright © 2022 Xander Frangos</copyright>
-    <licenseUrl>https://github.com/xanderfrangos/twinkle-tray/blob/v1.15.0-beta1/LICENSE</licenseUrl>
+    <licenseUrl>https://github.com/xanderfrangos/twinkle-tray/blob/v1.15.0-beta2/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <projectSourceUrl>https://github.com/xanderfrangos/twinkle-tray/tree/v1.15.0-beta1</projectSourceUrl>
+    <projectSourceUrl>https://github.com/xanderfrangos/twinkle-tray/tree/v1.15.0-beta2</projectSourceUrl>
     <docsUrl>https://github.com/xanderfrangos/twinkle-tray/wiki</docsUrl>
     <mailingListUrl>https://github.com/xanderfrangos/twinkle-tray/discussions</mailingListUrl>
     <bugTrackerUrl>https://github.com/xanderfrangos/twinkle-tray/issues</bugTrackerUrl>
@@ -23,15 +23,18 @@
 ---
 
 ### [choco://twinkle-tray](choco://twinkle-tray)
-To use choco:// protocol URLs, install [(unofficial) choco:// Protocol support ](https://community.chocolatey.org/packages/choco-protocol-support)
+
+To use choco:// protocol URLs, install [(unofficial) choco:// Protocol support](https://community.chocolatey.org/packages/choco-protocol-support)
 
 ---
+
+## Twinkle Tray
 
 Twinkle Tray lets you easily manage the brightness levels of multiple monitors. Even though Windows is capable of adjusting the backlight on most monitors, it typically doesn't support external monitors. Windows 10 & 11 also lack any ability to manage the brightness of multiple displays. This app inserts a new icon into your system tray, where you can click to have instant access to the brightness levels of all compatible displays.
 
 ![Screenshot](https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-twinkle-tray@ad59227d2bac35585d8e4831082727cc4e4d321b/tt-screenshot-w11.jpg)
 
-## Features
+### Features
 
 * Adds brightness sliders to the system tray, similar to the built-in Windows volume flyout.
 * Seamlessly blends in with Windows 10 and Windows 11. Uses your Personalization settings to match your taskbar.
@@ -41,7 +44,7 @@ Twinkle Tray lets you easily manage the brightness levels of multiple monitors. 
 * Control DDC/CI features such as contrast.
 * Starts up with Windows.
 
-### Design & Personalization
+#### Design & Personalization
 
 Twinkle Tray will automatically adjust the look and feel to match your Windows version and preferences. Additional options are available to select the Windows version and theme of your choice.
 
@@ -54,6 +57,10 @@ Twinkle Tray will automatically adjust the look and feel to match your Windows v
 
 ## Package Notes
 
+The installer executed by this package was built using Nullsoft Scriptable Install System (NSIS). For advanced setup scenarios, refer to [NSIS's command-line interface documentation](https://nsis.sourceforge.io/Docs/Chapter3.html). Any desired arguments can be appended to (or optionally overriding with the `--override-arguments` switch) the package's default install arguments with the `--install-arguments` option.
+
+---
+
 This package may create a [shim](https://docs.chocolatey.org/en-us/features/shim) named `twinkletray` to facilitate easier access to the command-line interface. However, `shimgen` will create a GUI shim, which will not wait for the underlying process to exit by default. This may cause issues with displaying console output when using the command-line interface or viewing debug messages. Users requiring this functionality should pass the `--shimgen-waitforexit` switch to ensure the shim behaves correctly.
 
 ---
@@ -61,7 +68,7 @@ This package may create a [shim](https://docs.chocolatey.org/en-us/features/shim
 For future upgrade operations, consider opting into Chocolatey's `useRememberedArgumentsForUpgrades` feature to avoid having to pass the same arguments with each upgrade:
 
 ```shell
-choco feature enable -n=useRememberedArgumentsForUpgrades
+choco feature enable --name=useRememberedArgumentsForUpgrades
 ```
 
 ---
@@ -71,7 +78,7 @@ When using the `/Start` package parameter, you may see a large `CLIXML` block lo
     <dependencies>
       <dependency id="chocolatey-core.extension" version="1.0.0" />
     </dependencies>
-    <releaseNotes>https://github.com/xanderfrangos/twinkle-tray/releases/tag/v1.15.0-beta1</releaseNotes>
+    <releaseNotes>https://github.com/xanderfrangos/twinkle-tray/releases/tag/v1.15.0-beta2</releaseNotes>
   </metadata>
   <files>
     <file src="tools\chocolateyinstall.ps1" target="tools" />
