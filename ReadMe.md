@@ -1,6 +1,6 @@
 # <img src="https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-twinkle-tray@800782d6afb5b6ab2e4dcefdb879bea194f0fef8/twinkle-tray.png" width="48" height="48"/> Chocolatey Package: [Twinkle Tray](https://community.chocolatey.org/packages/twinkle-tray)
 
-[![Chocolatey package version](https://img.shields.io/chocolatey/v/twinkle-tray.svg)](https://community.chocolatey.org/packages/twinkle-tray)
+[![Chocolatey package version](https://img.shields.io/chocolatey/v/twinkle-tray.svg?include_prereleases)](https://community.chocolatey.org/packages/twinkle-tray)
 [![Chocolatey package download count](https://img.shields.io/chocolatey/dt/twinkle-tray.svg)](https://community.chocolatey.org/packages/twinkle-tray)
 
 ## Install
