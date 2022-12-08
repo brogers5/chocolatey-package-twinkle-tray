@@ -3,17 +3,17 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>twinkle-tray</id>
-    <version>1.15.0</version>
-    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-twinkle-tray/tree/v1.15.0</packageSourceUrl>
+    <version>1.15.1</version>
+    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-twinkle-tray/tree/v1.15.1</packageSourceUrl>
     <owners>sublym0nal</owners>
     <title>Twinkle Tray</title>
     <authors>Xander Frangos</authors>
     <projectUrl>https://twinkletray.com/</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-twinkle-tray@800782d6afb5b6ab2e4dcefdb879bea194f0fef8/twinkle-tray.png</iconUrl>
     <copyright>Copyright © 2022 Xander Frangos</copyright>
-    <licenseUrl>https://github.com/xanderfrangos/twinkle-tray/blob/v1.15.0/LICENSE</licenseUrl>
+    <licenseUrl>https://github.com/xanderfrangos/twinkle-tray/blob/v1.15.1/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <projectSourceUrl>https://github.com/xanderfrangos/twinkle-tray/tree/v1.15.0</projectSourceUrl>
+    <projectSourceUrl>https://github.com/xanderfrangos/twinkle-tray/tree/v1.15.1</projectSourceUrl>
     <docsUrl>https://github.com/xanderfrangos/twinkle-tray/wiki</docsUrl>
     <mailingListUrl>https://github.com/xanderfrangos/twinkle-tray/discussions</mailingListUrl>
     <bugTrackerUrl>https://github.com/xanderfrangos/twinkle-tray/issues</bugTrackerUrl>
@@ -78,7 +78,7 @@ When using the `/Start` package parameter, you may see a large `CLIXML` block lo
     <dependencies>
       <dependency id="chocolatey-core.extension" version="1.0.0" />
     </dependencies>
-    <releaseNotes>https://github.com/xanderfrangos/twinkle-tray/releases/tag/v1.15.0</releaseNotes>
+    <releaseNotes>https://github.com/xanderfrangos/twinkle-tray/releases/tag/v1.15.1</releaseNotes>
   </metadata>
   <files>
     <file src="tools\chocolateyinstall.ps1" target="tools" />
