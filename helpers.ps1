@@ -20,9 +20,19 @@ function Get-LatestVersionInfo
         SoftwareVersion = $latestStableVersion
     }
 
+    if ($latestPreReleaseVersion -notmatch '-beta\d$')
+    {
+        #Pad package version with pre-release string to respect user's update channel preferences
+        $preReleasePackageVersion = "$latestPreReleaseVersion-beta"
+    }
+    else 
+    {
+        $preReleasePackageVersion = $latestPreReleaseVersion
+    }
+
     $betaVersionInfo = @{
         Url64 = Get-SoftwareAssetUriFromRelease -Release $latestPreRelease
-        Version = $latestPreReleaseVersion #This may change if building a package fix version
+        Version = $preReleasePackageVersion #This may change if building a package fix version
         SoftwareVersion = $latestPreReleaseVersion
     }
 
@@ -59,7 +69,14 @@ function Get-SoftwareAssetUriFromRelease($Release)
 
 function Get-SoftwareUri($Version)
 {
-    $release = Get-GitHubRelease -OwnerName $owner -RepositoryName $repository -Tag "v$($Version.ToString())"
+    #TODO: Add entries for any package version deviations from the software version (e.g. pre-release versions without a trailing string, package fix versions)
+    switch ($Version)
+    {
+        '1.15.3-beta' { $softwareVersion = '1.15.3' }
+        default { $softwareVersion = $Version }
+    }
+    
+    $release = Get-GitHubRelease -OwnerName $owner -RepositoryName $repository -Tag "v$($softwareVersion.ToString())"
 
     return Get-SoftwareAssetUriFromRelease -Release $release
 }
