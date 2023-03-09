@@ -3,8 +3,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>twinkle-tray</id>
-    <version>1.15.3-beta</version>
-    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-twinkle-tray/tree/v1.15.3-beta</packageSourceUrl>
+    <version>1.15.3</version>
+    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-twinkle-tray/tree/v1.15.3</packageSourceUrl>
     <owners>sublym0nal</owners>
     <title>Twinkle Tray</title>
     <authors>Xander Frangos</authors>
