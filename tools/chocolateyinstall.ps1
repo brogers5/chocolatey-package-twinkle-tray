@@ -1,7 +1,7 @@
 ﻿$ErrorActionPreference = 'Stop'
 
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$installerFileName = 'Twinkle.Tray.v1.15.3.exe'
+$installerFileName = 'Twinkle.Tray.v1.15.4.exe'
 $filePath = Join-Path -Path $toolsDir -ChildPath $installerFileName
 $softwareNamePattern = 'Twinkle Tray*'
 
