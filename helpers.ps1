@@ -10,8 +10,8 @@ function Get-LatestVersionInfo {
     $latestStableRelease = $releases | Where-Object { $_.PreRelease -eq $false } | Select-Object -First 1
     $latestStableVersion = $latestStableRelease.tag_name.Substring(1)
 
-    $latestPreRelease = $releases | Where-Object { $_.PreRelease -eq $true } | Select-Object -First 1
-    $latestPreReleaseVersion = $latestPreRelease.tag_name.Substring(1)
+    $latestNonCanaryBeta = $releases | Where-Object { $_.PreRelease -eq $true -and $_.tag_name -match 'v.*-beta\d$' } | Select-Object -First 1
+    $latestPreReleaseVersion = $latestNonCanaryBeta.tag_name.Substring(1)
 
     $stableVersionInfo = @{
         Url64           = Get-SoftwareAssetUriFromRelease -Release $latestStableRelease
@@ -19,16 +19,8 @@ function Get-LatestVersionInfo {
         SoftwareVersion = $latestStableVersion
     }
 
-    if ($latestPreReleaseVersion -notmatch '-beta\d$') {
-        #Pad package version with pre-release string to respect user's update channel preferences
-        $preReleasePackageVersion = "$latestPreReleaseVersion-beta"
-    }
-    else {
-        $preReleasePackageVersion = $latestPreReleaseVersion
-    }
-
     $betaVersionInfo = @{
-        Url64           = Get-SoftwareAssetUriFromRelease -Release $latestPreRelease
+        Url64           = Get-SoftwareAssetUriFromRelease -Release $latestNonCanaryBeta
         Version         = $preReleasePackageVersion #This may change if building a package fix version
         SoftwareVersion = $latestPreReleaseVersion
     }
