@@ -45,6 +45,16 @@ Alternatively, a junction point can be created that points to the local reposito
 mklink /J twinkle-tray ..\chocolatey-package-twinkle-tray
 ```
 
-Once created, simply run `update.ps1` from within the created directory/junction point. Assuming all goes well, all relevant files should change to reflect the latest version available. This will also build a new package version using the modified files.
+Once created, simply run `update.ps1` from within the created directory/junction point. Assuming all goes well, all relevant files should change to reflect the latest version available for the last stream that was built. This will also build a new package version using the modified files.
+
+To limit the scope of update checks to a specific update channel, pass the `-IncludeStream` parameter with the desired Stream name:
+
+```powershell
+.\update.ps1 -IncludeStream 'Stable'
+```
+
+```powershell
+.\update.ps1 -IncludeStream 'Beta'
+```
 
 Before submitting a pull request, please [test the package](https://docs.chocolatey.org/en-us/community-repository/moderation/package-verifier#steps-for-each-package) using the [Chocolatey Testing Environment](https://github.com/chocolatey-community/chocolatey-test-environment) first.
