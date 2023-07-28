@@ -38,15 +38,15 @@ function Get-SoftwareAssetUriFromRelease($Release) {
     foreach ($asset in $releaseAssets) {
         if ($asset.name -match $installerFileNameRegex) {
             $windowsInstallerAsset = $asset
-            break;
+            break
         }
         else {
-            continue;
+            continue
         }
     }
 
     if ($null -eq $windowsInstallerAsset) {
-        throw "Cannot find published Windows installer asset!"
+        throw 'Cannot find published Windows installer asset!'
     }
 
     return $windowsInstallerAsset.browser_download_url
