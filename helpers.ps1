@@ -1,8 +1,16 @@
 ﻿Import-Module PowerShellForGitHub
 
-$installerFileNameRegex = 'Twinkle\.Tray\.v([\d\.]+(-beta\d)?)\.exe'
+$installerFileNameRegex = 'Twinkle\.Tray\.v([\d\.]+(-beta[\d\.]+)?)\.exe'
 $owner = 'xanderfrangos'
 $repository = 'twinkle-tray'
+
+function ConvertTo-SemVerV1CompliantVersion([string] $Version) {
+    $tokens = $Version -split '-'
+    $result = $tokens[0] + '-'
+    $result += $tokens[1] -replace '\.', '-'
+
+    return $result
+}
 
 function Get-LatestVersionInfo {
     $releases = Get-GitHubRelease -OwnerName $owner -RepositoryName $repository
@@ -10,7 +18,7 @@ function Get-LatestVersionInfo {
     $latestStableRelease = $releases | Where-Object { $_.PreRelease -eq $false } | Select-Object -First 1
     $latestStableVersion = $latestStableRelease.tag_name.Substring(1)
 
-    $latestNonCanaryBeta = $releases | Where-Object { $_.PreRelease -eq $true -and $_.tag_name -match 'v.*-beta\d$' } | Select-Object -First 1
+    $latestNonCanaryBeta = $releases | Where-Object { $_.PreRelease -eq $true -and $_.tag_name -match 'v.*-beta[\d\.]+$' } | Select-Object -First 1
     $latestBetaVersion = $latestNonCanaryBeta.tag_name.Substring(1)
 
     $stableVersionInfo = @{
@@ -21,7 +29,7 @@ function Get-LatestVersionInfo {
 
     $betaVersionInfo = @{
         Url64           = Get-SoftwareAssetUriFromRelease -Release $latestNonCanaryBeta
-        Version         = $latestBetaVersion #This may change if building a package fix version
+        Version         = ConvertTo-SemVerV1CompliantVersion -Version $latestBetaVersion #This may change if building a package fix version
         SoftwareVersion = $latestBetaVersion
     }
 
