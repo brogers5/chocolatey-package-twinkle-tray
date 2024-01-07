@@ -64,6 +64,7 @@ function Get-SoftwareUri($Version) {
     #TODO: Add entries for any package version deviations from the software version (e.g. pre-release versions without a trailing string, package fix versions)
     switch ($Version) {
         '1.15.3-beta' { $softwareVersion = '1.15.3' }
+        '1.16.0-beta5-1' { $softwareVersion = '1.16.0-beta5.1' }
         default { $softwareVersion = $Version }
     }
     
