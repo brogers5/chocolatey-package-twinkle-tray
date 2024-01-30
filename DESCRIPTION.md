@@ -1,12 +1,3 @@
-
----
-
-### [choco://twinkle-tray](choco://twinkle-tray)
-
-To use choco:// protocol URLs, install [(unofficial) choco:// Protocol support](https://community.chocolatey.org/packages/choco-protocol-support)
-
----
-
 ## Twinkle Tray
 
 Twinkle Tray lets you easily manage the brightness levels of multiple monitors. Even though Windows is capable of adjusting the backlight on most monitors, it typically doesn't support external monitors. Windows 10 & 11 also lack any ability to manage the brightness of multiple displays. This app inserts a new icon into your system tray, where you can click to have instant access to the brightness levels of all compatible displays.
