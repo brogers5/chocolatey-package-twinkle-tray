@@ -5,14 +5,14 @@ in verifying that this package's contents are trustworthy.
 The packaged Windows installer binary is available for independent download via the
 Releases page on Twinkle Tray's GitHub repository. A download link for the packaged version
 is included at the following URL:
-https://github.com/xanderfrangos/twinkle-tray/releases/tag/v1.16.5
+https://github.com/xanderfrangos/twinkle-tray/releases/tag/v1.16.6
 
 For convenience, this is a direct URL to the relevant asset:
-https://github.com/xanderfrangos/twinkle-tray/releases/download/v1.16.5/Twinkle.Tray.v1.16.5.exe
+https://github.com/xanderfrangos/twinkle-tray/releases/download/v1.16.6/Twinkle.Tray.v1.16.6.exe
 
 The following PowerShell command will print a calculated SHA256 hash:
 
-    (Get-FileHash -Path Twinkle.Tray.v1.16.5.exe -Algorithm SHA256).Hash
+    (Get-FileHash -Path Twinkle.Tray.v1.16.6.exe -Algorithm SHA256).Hash
 
 This command should be executed against an independently downloaded binary, as well
 as the copy distributed with the package. Both hash values should be identical. A
@@ -20,4 +20,4 @@ matching hash value should confirm that no corruption or tampering has occurred
 during this package's generation process.
 
 For reference, the following SHA256 hash was calculated during the package's automated creation:
-924E96DBF7F8AB0749E9C9F8032B0F6CAEDA4E417F457DF30E69BD8FC3223CBC
+EAC7A93A8951D72FF42781941C4D3C2D2EC8ED022235FFDB3EF45DB2D83B9CB9
