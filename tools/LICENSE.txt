@@ -1,4 +1,4 @@
-From: https://raw.githubusercontent.com/xanderfrangos/twinkle-tray/v1.17.0-beta1/LICENSE
+From: https://raw.githubusercontent.com/xanderfrangos/twinkle-tray/v1.17.0-beta2/LICENSE
 
 MIT License
 
